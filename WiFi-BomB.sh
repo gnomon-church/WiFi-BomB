@@ -39,7 +39,7 @@ function kill_scan() {
 }
 
 function start_wifite() {
-	$(kill_scan)
+	$(kill_scan) &
 	wifite -wpa -wpat 120 -i wlan1
 
 }
