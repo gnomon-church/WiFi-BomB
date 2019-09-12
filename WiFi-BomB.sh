@@ -12,11 +12,11 @@
 declare -a COMPATIBLE_DISTROS=("Distributor ID:	Raspbian" "Distributor ID:	Ubuntu" "Distributor ID:	Debian"  "Distributor ID:	ManjaroLinux")
 
 ## These variables can be modified to change the approximate amount of time 
-## that the script will spend scanning, then actually running. The synax for 
-## these values is a numerical value, then a character to define a unit of time. 
+## that the script will spend scanning. The synax for these values is a 
+## numerical value, then a character to define a unit of time. 
 ## E.g. s: for second, m: for minute, d: for day
 SCAN_TIME=23s
-RUN_TIME=15m
+# RUN_TIME=15m
 
 COLUMNS=$(tput cols) 
 
@@ -46,7 +46,6 @@ function wifite_killer() {
 }
 
 function network_selection() {
-	# DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority xdotool key a l l; xdotool key Return
 	sleep $RUN_TIME
 	$(wifite_killer)
 	$(wifite_killer)
@@ -56,7 +55,7 @@ function kill_scan() {
 	sleep $SCAN_TIME
 	$(wifite_killer)
 	# $(yes_killer)
-	yes c | $(network_selection)
+	# $(network_selection)
 }
 
 function start_wifite() {
@@ -77,6 +76,7 @@ function install_dependencies() {
 		# Add to .bashrc
 		echo "sudo sh $FILE_LOCATION" >> ~/.bashrc
 
+		## NOT CURRENTLY WORKING
 		# Install nexmon custom firmware (to allow pi's card to be put in monitor mode)
 		# echo y | apt install git libgmp3-dev gawk qpdf bison flex make raspberrypi-kernel-headers
 		# git clone https://github.com/seemoo-lab/nexmon.git
