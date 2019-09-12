@@ -45,7 +45,7 @@ function network_selection() {
 
 function kill_scan() {
 	sleep $SCAN_TIME
-	yes all
+	
 	$(wifite_killer)
 	sleep 1s
 	$(yes_killer)
@@ -54,7 +54,7 @@ function kill_scan() {
 
 function start_wifite() {
 	$(kill_scan) &
-	wifite -quiet -wpa -wpat 120 -i wlan1
+	printf '%s\n' 'all' | wifite -quiet -wpa -wpat 120 -i wlan1
 }
 
 function install_dependencies() {
