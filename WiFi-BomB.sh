@@ -33,6 +33,7 @@ function process_killer() {
 
 function network_selection() {
 	# DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority xdotool key a l l; xdotool key Return
+	sleep 1s
 	print "all\n"
 	sleep $RUN_TIME
 	$(process_killer)
