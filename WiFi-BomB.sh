@@ -15,7 +15,7 @@ declare -a COMPATIBLE_DISTROS=("Distributor ID:	Raspbian" "Distributor ID:	Ubunt
 ## that the script will spend scanning, then actually running. The synax for 
 ## these values is a numerical value, then a character to define a unit of time. 
 ## E.g. s: for second, m: for minute, d: for day
-SCAN_TIME=23
+SCAN_TIME=23s
 RUN_TIME=10s
 
 ## 
@@ -28,7 +28,7 @@ function locate_module() {
 
 function yes_killer() {
 	Y_PID=`pidof yes all`
-	kill -s SIGINT $W_PID
+	kill -s SIGINT $Y_PID
 }
 
 function wifite_killer() {
