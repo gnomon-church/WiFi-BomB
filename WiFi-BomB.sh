@@ -17,9 +17,7 @@ DEP_FILE=/etc/wifibomb_deps
 
 function locate_module() {
 	ORIGINAL_LOCATION=`pwd`
-	cd `modinfo -F filename brcmfmac`
-	cd ..
-	MODULE_LOCATION=`pwd`
+	MODULE_LOCATION=`modinfo -F filename brcmfmac | sed -n -e 's/(?!.*\/brcmfmac.ko). //p'`
 }
 
 function process_killer() {
