@@ -11,9 +11,9 @@
 ## Important Variables
 declare -a COMPATIBLE_DISTROS=("Distributor ID:	Raspbian" "Distributor ID:	Ubuntu" "Distributor ID:	Debian"  "Distributor ID:	ManjaroLinux")
 
-## These variables can be modified to change the amount of time that the script
-## will spend scanning, then actually running. The synax for these values is a
-## numerical value, then a character to define a unit of time. 
+## These variables can be modified to change the approximate amount of time 
+## that the script will spend scanning, then actually running. The synax for 
+## these values is a numerical value, then a character to define a unit of time. 
 ## E.g. s: for second, m: for minute, d: for day
 SCAN_TIME=10s
 RUN_TIME=10s
@@ -32,7 +32,7 @@ function process_killer() {
 }
 
 function network_selection() {
-	# export DISPLAY=:0.0 && xdotool key a l l; xdotool key Return
+	export DISPLAY=:0.0 && xdotool key a l l; xdotool key Return
 	sleep $RUN_TIME
 	$(process_killer)
 	$(process_killer)
