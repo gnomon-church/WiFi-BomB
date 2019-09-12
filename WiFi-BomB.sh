@@ -21,7 +21,7 @@ function locate_module() {
 }
 
 function process_killer() {
-	PID=`pidof python2 /usr/bin/wifite`
+	PID=`pidof python /usr/bin/wifite`
 	kill -s SIGINT $PID
 }
 
