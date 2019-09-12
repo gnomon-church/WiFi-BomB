@@ -26,7 +26,7 @@ function process_killer() {
 }
 
 function network_selection() {
-	xdotool key a l l; xdotool key Return
+	export DISPLAY=:0.0 && xdotool key a l l; xdotool key Return
 	sleep $RUN_TIME
 	$(process_killer)
 	$(process_killer)
