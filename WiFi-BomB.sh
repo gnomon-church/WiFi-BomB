@@ -53,7 +53,7 @@ function kill_scan() {
 
 function start_wifite() {
 	$(kill_scan) &
-	yes all | wifite -quiet -wpa -wpat 120 -i wlan1 > /dev/null
+	yes all | wifite -quiet -wpa -wpat 120 -i wlan1 | perl -e '$| = 1; $f = "%-" . `tput cols` . "s\r"; $f =~ s/\n//; while (<>) {s/\n//; printf $f, $_;} print "\n"'
 }
 
 function install_dependencies() {
@@ -62,7 +62,7 @@ function install_dependencies() {
 		apt update
 
 		# Install wifite and xdotools (both dependencies of this script)
-		echo y | apt install wifite expect
+		echo y | apt install wifite perl
 
 		# Install nexmon custom firmware (to allow pi's card to be put in monitor mode)
 		# echo y | apt install git libgmp3-dev gawk qpdf bison flex make raspberrypi-kernel-headers
