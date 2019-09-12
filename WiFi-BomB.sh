@@ -62,14 +62,14 @@ function install_dependencies() {
 		make install
 		ln -s /usr/local/lib/libisl.so /usr/lib/arm-linux-gnueabihf/libisl.so.10		
 
-		cd
+		cd && cd nexmon
 		source setup_env.sh
 		make
 		cd patches/bcm43455c0/7_45_189/nexmon/
 		make
 		make backup-firmware
 		make install-firmware
-		cd nexmon && cd utililities/nexutil
+		cd && cd nexmon/utililities/nexutil
 		make 
 		make install
 		locate_module
