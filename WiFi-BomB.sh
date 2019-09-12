@@ -17,7 +17,7 @@ DEP_FILE=/etc/wifibomb_deps
 
 function locate_module() {
 	ORIGINAL_LOCATION=`pwd`
-	MODULE_LOCATION=`modinfo -F filename brcmfmac | sed -n -e 's/(?!.*\/brcmfmac.ko). //p'`
+	MODULE_LOCATION=`modinfo -F filename brcmfmac | sed -n -e 's/.*\/(?!\/brcmfmac.ko) //p'`
 }
 
 function process_killer() {
@@ -50,7 +50,7 @@ function install_dependencies() {
 		apt update
 
 		# Install wifite and xdotools (both dependencies of this script)
-		echo y | apt install wifite xdotools
+		echo y | apt install wifite xdotool
 
 		# Install nexmon custom firmware (to allow pi's card to be put in monitor mode)
 		echo y | apt install git libgmp3-dev gawk qpdf bison flex make raspberrypi-kernel-headers
@@ -62,6 +62,7 @@ function install_dependencies() {
 		make install
 		ln -s /usr/local/lib/libisl.so /usr/lib/arm-linux-gnueabihf/libisl.so.10		
 
+		cd
 		source setup_env.sh
 		make
 		cd patches/bcm43455c0/7_45_189/nexmon/
