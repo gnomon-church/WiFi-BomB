@@ -26,21 +26,27 @@ function locate_module() {
 	MODULE_LOCATION=`modinfo -F filename brcmfmac | sed -n -e 's/.*\/(?!\/brcmfmac.ko) //p'`
 }
 
-function process_killer() {
-	PID=`pidof python /usr/bin/wifite`
-	kill -s SIGINT $PID
+function yes_killer() {
+	Y_PID=`pidof yes all`
+	kill -s SIGINT $W_PID
+}
+
+function wifite_killer() {
+	W_PID=`pidof python /usr/bin/wifite`
+	kill -s SIGINT $W_PID
 }
 
 function network_selection() {
 	# DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority xdotool key a l l; xdotool key Return
 	sleep $RUN_TIME
-	$(process_killer)
-	$(process_killer)
+	$(wifite_killer)
+	$(wifite_killer)
 }
 
 function kill_scan() {
 	sleep $SCAN_TIME
-	$(process_killer)
+	$(wifite_killer)
+	$(yes_killer)
 	$(network_selection)
 }
 
