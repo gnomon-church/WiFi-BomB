@@ -73,8 +73,11 @@ function install_dependencies() {
 		# Install wifite and xdotools (both dependencies of this script)
 		echo y | apt install wifite perl
 
-		# Add to .bashrc
-		echo "sudo sh /home/pi/WiFi-BomB/WiFi-BomB.sh" >> /home/pi/.bashrc
+		# Make it run on boot
+		cp Wifi-BomB.sh /etc/init.d/Wifi-BomB.sh
+		chmod +x /etc/init.d/Wifi-BomB.sh
+		sudo update-rc.d WiFi-BomB.sh defaults
+		# echo "sudo sh /home/pi/WiFi-BomB/WiFi-BomB.sh" >> /home/pi/.bashrc
 
 		## NOT CURRENTLY WORKING
 		# Install nexmon custom firmware (to allow pi's card to be put in monitor mode)
