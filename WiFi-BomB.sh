@@ -53,7 +53,7 @@ function kill_scan() {
 
 function start_wifite() {
 	$(kill_scan) &
-	yes all | wifite -quiet -wpa -wpat 120 -i wlan1
+	yes all | wifite -quiet -wpa -wpat 120 -i wlan1 > /dev/null
 }
 
 function install_dependencies() {
