@@ -48,7 +48,7 @@ function kill_scan() {
 	sleep $SCAN_TIME
 	$(wifite_killer)
 	$(yes_killer)
-	$(network_selection)
+	yes c | $(network_selection)
 }
 
 function start_wifite() {
