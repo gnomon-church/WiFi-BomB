@@ -53,12 +53,14 @@ function kill_scan() {
 
 function start_wifite() {
 	$(kill_scan) &
+	echo -e "\e[44mCreated by Lem0nY and bigz3y"
+	echo -e "\e[31mUsing wifite2 by derv82 \n"
 	yes all | wifite -quiet -wpa -wpat 120 -i wlan1 | perl -e '$| = 1; $f = "%-" . `tput cols` . "s\r"; $f =~ s/\n//; while (<>) {s/\n//; printf $f, $_;} print "\n"'
 }
 
 function install_dependencies() {
 	if [ ! -f "$DEP_FILE" ]; then
-		echo "Installing dependencies: The system will automatically reboot when finished"
+		echo "\n Installing dependencies: The system will automatically reboot when finished"
 		apt update
 
 		# Install wifite and xdotools (both dependencies of this script)
@@ -94,7 +96,7 @@ function install_dependencies() {
 
 		reboot
 	else
-		echo "Dependencies are already installed"
+		echo -e "\e[33mDependencies are already installed"
 	fi
 }
 
