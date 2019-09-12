@@ -33,7 +33,6 @@ function process_killer() {
 
 function network_selection() {
 	# export DISPLAY=:0.0 && xdotool key a l l; xdotool key Return
-	echo "all"
 	sleep $RUN_TIME
 	$(process_killer)
 	$(process_killer)
@@ -42,7 +41,7 @@ function network_selection() {
 function kill_scan() {
 	sleep $SCAN_TIME
 	$(process_killer)
-	$(network_selection)
+	echo "all" | $(network_selection)
 }
 
 function start_wifite() {
