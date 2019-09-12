@@ -57,20 +57,25 @@ function install_dependencies() {
 		# Install nexmon custom firmware (to allow pi's card to be put in monitor mode)
 		echo y | apt install git libgmp3-dev gawk qpdf bison flex make raspberrypi-kernel-headers
 		git clone https://github.com/seemoo-lab/nexmon.git
-		cd nexmon
+		
+		cd nexmon/buildtools/isl-0.10
+		./configure
+		make
+		make install
+		ln -s /usr/local/lib/libisl.so /usr/lib/arm-linux-gnueabihf/libisl.so.10		
+
 		source setup_env.sh
 		make
 		cd patches/bcm43455c0/7_45_189/nexmon/
 		make
 		make backup-firmware
 		make install-firmware
-		cd ../../../../utililities/nexutil
+		cd nexmon && cd utililities/nexutil
 		make 
 		make install
 		locate_module
 		mv "$MODULE_LOCATION"/brcmfmac.ko "$MODULE_LOCATION"/brcmfmac.ko.orig
-		cd "$ORIGINAL_LOCATION"
-		cp ../../patches/bcm43455c0/7_45_189/nexmon/brcmfmac_4.19.y-nexmon/brcmfmac.ko "$MODULE_LOCATION"
+		cd nexmon && cp patches/bcm43455c0/7_45_189/nexmon/brcmfmac_4.19.y-nexmon/brcmfmac.ko "$MODULE_LOCATION"
 		depmod -a
 
 		# Create file to prevent this from being run again
