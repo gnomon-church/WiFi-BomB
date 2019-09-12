@@ -1,0 +1,7 @@
+#!/usr/bin/expect -f
+
+spawn wifite -wpa -wpat 120 -i wlan1
+
+expect "*"
+
+send "all\r"
