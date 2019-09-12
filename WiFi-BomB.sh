@@ -15,7 +15,7 @@ declare -a COMPATIBLE_DISTROS=("Distributor ID:	Raspbian" "Distributor ID:	Ubunt
 ## that the script will spend scanning, then actually running. The synax for 
 ## these values is a numerical value, then a character to define a unit of time. 
 ## E.g. s: for second, m: for minute, d: for day
-SCAN_TIME=23s
+SCAN_TIME=23
 RUN_TIME=10s
 
 ## 
@@ -40,16 +40,14 @@ function network_selection() {
 
 function kill_scan() {
 	sleep $SCAN_TIME
-	fg
-	print "all"
 	$(process_killer)
 	$(network_selection)
 }
 
 function start_wifite() {
 	$(kill_scan) &
-	# expect -f inputs.exp
-	wifite -quiet -wpa -wpat 120 -i wlan1
+	ALL_TIME=$RUN_TIME + 10
+	timeout $ALL_TIME yes all | wifite -quiet -wpa -wpat 120 -i wlan1
 
 }
 
