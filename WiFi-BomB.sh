@@ -32,7 +32,7 @@ function process_killer() {
 }
 
 function network_selection() {
-	export DISPLAY=:0.0 && export XAUTHORITY=/home/username/.Xauthority && xdotool key a l l; xdotool key Return
+	DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority xdotool key a l l; xdotool key Return
 	sleep $RUN_TIME
 	$(process_killer)
 	$(process_killer)
