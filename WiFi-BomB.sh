@@ -87,6 +87,7 @@ function distro_checker() {
 	for POSSIBLE_DISTRO in "${COMPATIBLE_DISTROS[@]}"; do
 		if [ "$POSSIBLE_DISTRO" == "$DISTRO" ]; then
 			RESULT=1
+			break
 		else
 			RESULT=0
 		fi
@@ -95,7 +96,7 @@ function distro_checker() {
 
 if [ "$(id -u)" == 0 ]; then
 	echo -e "  ▄█     █▄   ▄█     ▄████████  ▄█       ▀█████████▄   ▄██████▄    ▄▄▄▄███▄▄▄▄   ▀█████████▄  \n ███     ███ ███    ███    ███ ███         ███    ███ ███    ███ ▄██▀▀▀███▀▀▀██▄   ███    ███ \n ███     ███ ███▌   ███    █▀  ███▌        ███    ███ ███    ███ ███   ███   ███   ███    ███ \n ███     ███ ███▌  ▄███▄▄▄     ███▌       ▄███▄▄▄██▀  ███    ███ ███   ███   ███  ▄███▄▄▄██▀  \n ███     ███ ███▌ ▀▀███▀▀▀     ███▌      ▀▀███▀▀▀██▄  ███    ███ ███   ███   ███ ▀▀███▀▀▀██▄  \n ███     ███ ███    ███        ███         ███    ██▄ ███    ███ ███   ███   ███   ███    ██▄ \n ███ ▄█▄ ███ ███    ███        ███         ███    ███ ███    ███ ███   ███   ███   ███    ███ \n  ▀███▀███▀  █▀     ███        █▀        ▄█████████▀   ▀██████▀   ▀█   ███   █▀  ▄█████████▀  \n"
-	echo  -e "\033[5mthe bomb has been planted...\033[0m"
+	echo  -e "\033[5m\e[32mthe bomb has been planted...\033[0m"
 	distro_checker
 	if [ $RESULT == 0 ]; then
 		echo "Automatic dependency installation is not supported on this distribution. You must install all dependencies manually"
