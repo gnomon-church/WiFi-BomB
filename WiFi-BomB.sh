@@ -40,6 +40,11 @@ function network_selection() {
 
 function kill_scan() {
 	sleep $SCAN_TIME
+<<<<<<< HEAD
+=======
+	fg
+	echo "all"
+>>>>>>> 41e0eb63805e8860264e47535f21f28029aed384
 	$(process_killer)
 	$(network_selection)
 }
