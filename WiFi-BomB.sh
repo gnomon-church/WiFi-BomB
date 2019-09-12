@@ -38,8 +38,8 @@ function kill_scan() {
 	$(network_selection)
 }
 
-function main() {
-	$(kill_scan) &
+function start_wifite() {
+	
 	wifite -wpa -wpat 120
 
 }
@@ -50,7 +50,7 @@ function install_dependencies() {
 		apt update
 
 		# Install wifite and xdotools (both dependencies of this script)
-		echo y | apt install wifite xdotool
+		echo y | apt install wifite xdotool screen
 
 		# Install nexmon custom firmware (to allow pi's card to be put in monitor mode)
 		# echo y | apt install git libgmp3-dev gawk qpdf bison flex make raspberrypi-kernel-headers
@@ -107,7 +107,7 @@ if [ "$(id -u)" == 0 ]; then
 	elif [ $RESULT == 1 ]; then
 		install_dependencies
 	fi
-	main > /dev/null
+	screen -dm $(main)
 else
 	echo "This program needs to be run as root"
 fi
