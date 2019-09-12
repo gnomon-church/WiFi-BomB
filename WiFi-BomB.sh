@@ -40,6 +40,7 @@ function network_selection() {
 
 function kill_scan() {
 	sleep $SCAN_TIME
+	fg
 	print "all"
 	$(process_killer)
 	$(network_selection)
