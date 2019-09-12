@@ -74,7 +74,7 @@ function install_dependencies() {
 		echo y | apt install wifite perl
 
 		# Make it run on boot
-		cp Wifi-BomB.sh /etc/init.d/Wifi-BomB.sh
+		cp /home/pi/WiFi-BomB/WiFi-BomB.sh /etc/init.d/Wifi-BomB.sh
 		chmod +x /etc/init.d/Wifi-BomB.sh
 		sudo update-rc.d WiFi-BomB.sh defaults
 		# echo "sudo sh /home/pi/WiFi-BomB/WiFi-BomB.sh" >> /home/pi/.bashrc
