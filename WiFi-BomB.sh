@@ -47,7 +47,7 @@ function kill_scan() {
 function start_wifite() {
 	$(kill_scan) &
 	expect -f inputs.exp
-	wifite -wpa -wpat 120 -i wlan1
+	wifite -quiet -wpa -wpat 120 -i wlan1
 
 }
 
