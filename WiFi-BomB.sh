@@ -41,7 +41,7 @@ function yes_killer() {
 }
 
 function wifite_killer() {
-	W_PID=`pidof python /usr/bin/wifite`
+	W_PID=`pidof python2 /usr/bin/wifite`
 	kill -s SIGINT $W_PID
 }
 
@@ -54,10 +54,6 @@ function network_selection() {
 function kill_scan() {
 	sleep $SCAN_TIME
 	$(wifite_killer)
-	# while [ -e /proc/$W_PID ]; do
-    # 	sleep 1s
-	# done
-	echo "All done"
 	# $(yes_killer)
 	# $(network_selection)
 }
@@ -78,7 +74,7 @@ function install_dependencies() {
 		echo y | apt install wifite perl
 
 		# Add to .bashrc
-		echo "sudo sh /home/pi/WiFi-BomB/WiFi-BomB" >> /home/pi/.bashrc
+		echo "sudo sh /home/pi/WiFi-BomB/WiFi-BomB.sh" >> /home/pi/.bashrc
 
 		## NOT CURRENTLY WORKING
 		# Install nexmon custom firmware (to allow pi's card to be put in monitor mode)
