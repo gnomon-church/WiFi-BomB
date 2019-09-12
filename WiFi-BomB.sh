@@ -54,6 +54,11 @@ function network_selection() {
 function kill_scan() {
 	sleep $SCAN_TIME
 	$(wifite_killer)
+	while [ -e /proc/$PID ]; do
+    	echo "Process: $PID is still running" >> /home/parv/waitAndRun.log
+    	sleep 1s
+	done
+	echo "All done"
 	# $(yes_killer)
 	# $(network_selection)
 }
