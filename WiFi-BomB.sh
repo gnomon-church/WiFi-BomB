@@ -32,7 +32,7 @@ function process_killer() {
 }
 
 function network_selection() {
-	DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority xdotool key a l l; xdotool key Return
+	# DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority xdotool key a l l; xdotool key Return
 	sleep $RUN_TIME
 	$(process_killer)
 	$(process_killer)
@@ -41,7 +41,7 @@ function network_selection() {
 function kill_scan() {
 	sleep $SCAN_TIME
 	$(process_killer)
-	$(network_selection)
+	yes all | $(network_selection)
 }
 
 function start_wifite() {
@@ -56,7 +56,7 @@ function install_dependencies() {
 		apt update
 
 		# Install wifite and xdotools (both dependencies of this script)
-		echo y | apt install wifite xdotool screen
+		echo y | apt install wifite expect
 
 		# Install nexmon custom firmware (to allow pi's card to be put in monitor mode)
 		# echo y | apt install git libgmp3-dev gawk qpdf bison flex make raspberrypi-kernel-headers
