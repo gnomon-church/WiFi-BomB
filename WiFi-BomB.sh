@@ -74,10 +74,10 @@ function install_dependencies() {
 		echo y | apt install wifite perl
 
 		# Make it run on boot
-		cp /home/pi/WiFi-BomB/WiFi-BomB.sh /etc/init.d/WiFi-BomB.sh
-		chmod 755 /etc/init.d/WiFi-BomB.sh
-		update-rc.d WiFi-BomB.sh defaults
-		# echo "sudo sh /home/pi/WiFi-BomB/WiFi-BomB.sh" >> /home/pi/.bashrc
+		# cp /home/pi/WiFi-BomB/WiFi-BomB.sh /etc/init.d/WiFi-BomB.sh
+		# chmod 755 /etc/init.d/WiFi-BomB.sh
+		# update-rc.d WiFi-BomB.sh defaults
+		echo "sudo bash /home/pi/WiFi-BomB/WiFi-BomB.sh" >> /home/pi/.profile
 
 		## NOT CURRENTLY WORKING
 		# Install nexmon custom firmware (to allow pi's card to be put in monitor mode)
