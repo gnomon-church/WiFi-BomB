@@ -40,18 +40,13 @@ function network_selection() {
 
 function kill_scan() {
 	sleep $SCAN_TIME
-<<<<<<< HEAD
-=======
-	fg
-	echo "all"
->>>>>>> 41e0eb63805e8860264e47535f21f28029aed384
 	$(process_killer)
 	$(network_selection)
 }
 
 function start_wifite() {
 	$(kill_scan) &
-	ALL_TIME=$RUN_TIME + 10
+	ALL_TIME=$RUN_TIME + 1
 	timeout $ALL_TIME yes all | wifite -quiet -wpa -wpat 120 -i wlan1
 
 }
