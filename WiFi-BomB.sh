@@ -18,6 +18,11 @@ declare -a COMPATIBLE_DISTROS=("Distributor ID:	Raspbian" "Distributor ID:	Ubunt
 SCAN_TIME=23s
 RUN_TIME=30s
 
+COLUMNS=$(tput cols) 
+
+US="Created by Lem0nY and bigz3y"
+THEM="Using wifite2 by derv82"
+
 ## 
 DEP_FILE=/etc/wifibomb_deps
 
@@ -53,14 +58,14 @@ function kill_scan() {
 
 function start_wifite() {
 	$(kill_scan) &
-	echo -e "\e[44mCreated by Lem0nY and bigz3y"
-	echo -e "\e[31mUsing wifite2 by derv82 \n"
+	printf "\e[96m%*s\n" $(((${#US}+$COLUMNS)/2)) "$US"
+	printf "%*s\n" $(((${#THEM}+$COLUMNS)/2)) "$THEM"
 	yes all | wifite -quiet -wpa -wpat 120 -i wlan1 | perl -e '$| = 1; $f = "%-" . `tput cols` . "s\r"; $f =~ s/\n//; while (<>) {s/\n//; printf $f, $_;} print "\n"'
 }
 
 function install_dependencies() {
 	if [ ! -f "$DEP_FILE" ]; then
-		echo "\n Installing dependencies: The system will automatically reboot when finished"
+		echo "\n Installing dependencies: The system will automatically reboot when finished \n"
 		apt update
 
 		# Install wifite and xdotools (both dependencies of this script)
@@ -96,7 +101,7 @@ function install_dependencies() {
 
 		reboot
 	else
-		echo -e "\e[33mDependencies are already installed"
+		echo -e "\e[33mDependencies are already installed \n"
 	fi
 }
 
