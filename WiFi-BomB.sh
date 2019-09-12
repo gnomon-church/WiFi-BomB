@@ -74,7 +74,7 @@ function install_dependencies() {
 		make install
 		locate_module
 		mv "$MODULE_LOCATION"/brcmfmac.ko "$MODULE_LOCATION"/brcmfmac.ko.orig
-		cd nexmon && cp patches/bcm43455c0/7_45_189/nexmon/brcmfmac_4.19.y-nexmon/brcmfmac.ko "$MODULE_LOCATION"
+		cd && cp nexmon/patches/bcm43455c0/7_45_189/nexmon/brcmfmac_4.19.y-nexmon/brcmfmac.ko "$MODULE_LOCATION"
 		depmod -a
 
 		# Create file to prevent this from being run again
