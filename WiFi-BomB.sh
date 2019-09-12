@@ -16,7 +16,7 @@ declare -a COMPATIBLE_DISTROS=("Distributor ID:	Raspbian" "Distributor ID:	Ubunt
 ## these values is a numerical value, then a character to define a unit of time. 
 ## E.g. s: for second, m: for minute, d: for day
 SCAN_TIME=23s
-RUN_TIME=30s
+RUN_TIME=15m
 
 COLUMNS=$(tput cols) 
 
