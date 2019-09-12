@@ -1,6 +1,13 @@
+##________The programs theory was created by bigz3y(Zac R-S), with the written script mainly done by Lem0nY___________________________________
+
 #!/bin/bash
 
 ## This is a pretty cool program and this will be a basic desciption of it.
+## this is a program that automates the use of Wifite on raspberry pi (but not limited to a raspberry pi for use however).
+##this was created so that a user can plug the raspberry pi into power, and have it attack all networks it comes across
+##for about 15 minutes. This is so that the attack can take place without the user being present at the location, allowing a
+##fair amount of plausability. IT CAN BE USED ETHICALLY, it could also be usedto mass audit lcal ap's en masse, streamlining the wifi 
+##pentesting process.
 
 ## Important Variables
 declare -a COMPATIBLE_DISTROS=("Distributor ID:	Raspbian" "Distributor ID:	Ubuntu" "Distributor ID:	Debian"  "Distributor ID:	ManjaroLinux")
