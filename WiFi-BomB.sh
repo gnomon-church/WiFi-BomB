@@ -28,12 +28,12 @@ function locate_module() {
 
 function yes_killer() {
 	Y_PID=`pidof yes all`
+	sleep 10s
 	kill -s SIGPIPE $Y_PID
 }
 
 function wifite_killer() {
 	W_PID=`pidof python /usr/bin/wifite`
-	sleep 10s
 	kill -s SIGINT $W_PID
 }
 
