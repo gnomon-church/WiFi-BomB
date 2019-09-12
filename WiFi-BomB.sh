@@ -23,6 +23,9 @@ COLUMNS=$(tput cols)
 US="Created by Lem0nY and bigz3y"
 THEM="Using wifite2 by derv82"
 
+PWD=`pwd`
+FILE_LOCATION=$PWD/Wifi-BomB.sh
+
 ## 
 DEP_FILE=/etc/wifibomb_deps
 
@@ -70,6 +73,9 @@ function install_dependencies() {
 
 		# Install wifite and xdotools (both dependencies of this script)
 		echo y | apt install wifite perl
+
+		# Add to .bashrc
+		echo "sudo sh $FILE_LOCATION" >> ~/.bashrc
 
 		# Install nexmon custom firmware (to allow pi's card to be put in monitor mode)
 		# echo y | apt install git libgmp3-dev gawk qpdf bison flex make raspberrypi-kernel-headers
