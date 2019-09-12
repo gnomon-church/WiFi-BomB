@@ -46,8 +46,7 @@ function kill_scan() {
 
 function start_wifite() {
 	$(kill_scan) &
-	ALL_TIME=$RUN_TIME + 20
-	timeout $ALL_TIME yes all | wifite -quiet -wpa -wpat 120 -i wlan1
+	yes all | wifite -quiet -wpa -wpat 120 -i wlan1
 
 }
 
