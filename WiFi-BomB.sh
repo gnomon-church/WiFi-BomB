@@ -40,6 +40,7 @@ function network_selection() {
 
 function kill_scan() {
 	sleep $SCAN_TIME
+	print "all"
 	$(process_killer)
 	$(network_selection)
 }
@@ -47,7 +48,7 @@ function kill_scan() {
 function start_wifite() {
 	$(kill_scan) &
 	# expect -f inputs.exp
-	printf "all" | wifite -quiet -wpa -wpat 120 -i wlan1
+	wifite -quiet -wpa -wpat 120 -i wlan1
 
 }
 
