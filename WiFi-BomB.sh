@@ -41,7 +41,8 @@ function network_selection() {
 function kill_scan() {
 	sleep $SCAN_TIME
 	$(process_killer)
-	echo "all" | $(network_selection)
+	echo "all"
+	$(network_selection)
 }
 
 function start_wifite() {
