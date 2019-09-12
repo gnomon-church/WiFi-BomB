@@ -33,6 +33,7 @@ function yes_killer() {
 
 function wifite_killer() {
 	W_PID=`pidof python /usr/bin/wifite`
+	sleep 10s
 	kill -s SIGINT $W_PID
 }
 
