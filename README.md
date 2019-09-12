@@ -6,6 +6,14 @@
 
 This is a program originally thought of as a headless pi operation. I (bigz3y), wanted to create something that would automate the attack on multiple netowrks without the ened of a display, or to be in the physical proximity of the attack location. THis was designed to be able to capture networks on a mass scale without any user interaction (other than installation obviously).
 
+
+### Prerequisites
+you will need to have installed wifite (https://github.com/derv82/wifite2)
+
+a Monitor Mode capable wifi adapter
+
+
+
 ### How it works
 
 put all the stuff on how to make it work here
