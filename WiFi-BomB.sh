@@ -1,6 +1,6 @@
-##________The programs theory was created by bigz3y(Zac R-S), with the written script mainly done by Lem0nY___________________________________
-
 #!/bin/bash
+
+##________The programs theory was created by bigz3y(Zac R-S), with the written script mainly done by Lem0nY___________________________________
 
 ## this is a program that automates the use of Wifite on raspberry pi (but not limited to a raspberry pi for use however).
 ##this was created so that a user can plug the raspberry pi into power, and have it attack all networks it comes across
@@ -32,7 +32,7 @@ function process_killer() {
 }
 
 function network_selection() {
-	export DISPLAY=:0.0 && xdotool key a l l; xdotool key Return
+	# export DISPLAY=:0.0 && xdotool key a l l; xdotool key Return
 	sleep $RUN_TIME
 	$(process_killer)
 	$(process_killer)
