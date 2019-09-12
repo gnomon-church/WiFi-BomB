@@ -33,6 +33,7 @@ function process_killer() {
 
 function network_selection() {
 	# DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority xdotool key a l l; xdotool key Return
+	yes all
 	sleep $RUN_TIME
 	$(process_killer)
 	$(process_killer)
@@ -41,7 +42,7 @@ function network_selection() {
 function kill_scan() {
 	sleep $SCAN_TIME
 	$(process_killer)
-	yes all | $(network_selection)
+	$(network_selection)
 }
 
 function start_wifite() {
