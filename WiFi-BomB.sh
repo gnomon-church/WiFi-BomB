@@ -28,7 +28,7 @@ function locate_module() {
 
 function yes_killer() {
 	Y_PID=`pidof yes all`
-	kill -s SIGINT $Y_PID
+	kill -s SIGPIPE $Y_PID
 }
 
 function wifite_killer() {
@@ -52,7 +52,7 @@ function kill_scan() {
 
 function start_wifite() {
 	$(kill_scan) &
-	printf '%s\n' 'all' | wifite -quiet -wpa -wpat 120 -i wlan1
+	yes all | wifite -quiet -wpa -wpat 120 -i wlan1
 }
 
 function install_dependencies() {
