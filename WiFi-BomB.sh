@@ -53,29 +53,29 @@ function install_dependencies() {
 		echo y | apt install wifite xdotool
 
 		# Install nexmon custom firmware (to allow pi's card to be put in monitor mode)
-		echo y | apt install git libgmp3-dev gawk qpdf bison flex make raspberrypi-kernel-headers
-		git clone https://github.com/seemoo-lab/nexmon.git
+		# echo y | apt install git libgmp3-dev gawk qpdf bison flex make raspberrypi-kernel-headers
+		# git clone https://github.com/seemoo-lab/nexmon.git
 		
-		cd nexmon/buildtools/isl-0.10
-		./configure
-		make
-		make install
-		ln -s /usr/local/lib/libisl.so /usr/lib/arm-linux-gnueabihf/libisl.so.10		
+		# cd nexmon/buildtools/isl-0.10
+		# ./configure
+		# make
+		# make install
+		# ln -s /usr/local/lib/libisl.so /usr/lib/arm-linux-gnueabihf/libisl.so.10		
 
-		cd && cd nexmon
-		source setup_env.sh
-		make
-		cd patches/bcm43455c0/7_45_189/nexmon/
-		make
-		make backup-firmware
-		make install-firmware
-		cd && cd nexmon/utililities/nexutil
-		make 
-		make install
-		locate_module
-		mv "$MODULE_LOCATION"/brcmfmac.ko "$MODULE_LOCATION"/brcmfmac.ko.orig
-		cd && cp nexmon/patches/bcm43455c0/7_45_189/nexmon/brcmfmac_4.19.y-nexmon/brcmfmac.ko "$MODULE_LOCATION"
-		depmod -a
+		# cd && cd nexmon
+		# source setup_env.sh
+		# make
+		# cd patches/bcm43455c0/7_45_189/nexmon/
+		# make
+		# make backup-firmware
+		# make install-firmware
+		# cd && cd nexmon/utililities/nexutil
+		# make 
+		# make install
+		# locate_module
+		# mv "$MODULE_LOCATION"/brcmfmac.ko "$MODULE_LOCATION"/brcmfmac.ko.orig
+		# cd && cp nexmon/patches/bcm43455c0/7_45_189/nexmon/brcmfmac_4.19.y-nexmon/brcmfmac.ko "$MODULE_LOCATION"
+		# depmod -a
 
 		# Create file to prevent this from being run again
 		touch $DEP_FILE
@@ -107,7 +107,7 @@ if [ "$(id -u)" == 0 ]; then
 	elif [ $RESULT == 1 ]; then
 		install_dependencies
 	fi
-	main
+	main > /dev/null
 else
 	echo "This program needs to be run as root"
 fi
