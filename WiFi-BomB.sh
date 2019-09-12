@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## This is a pretty cool program and this will be a basic desciption of it.
+
 ## Important Variables
 declare -a COMPATIBLE_DISTROS=("Distributor ID:	Raspbian" "Distributor ID:	Ubuntu" "Distributor ID:	Debian"  "Distributor ID:	ManjaroLinux")
 
