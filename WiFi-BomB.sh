@@ -39,7 +39,7 @@ function kill_scan() {
 }
 
 function start_wifite() {
-	
+	$(kill_scan)
 	wifite -wpa -wpat 120
 
 }
@@ -107,7 +107,7 @@ if [ "$(id -u)" == 0 ]; then
 	elif [ $RESULT == 1 ]; then
 		install_dependencies
 	fi
-	screen -dm $(main)
+	screen -dm $(start_wifite)
 else
 	echo "This program needs to be run as root"
 fi
