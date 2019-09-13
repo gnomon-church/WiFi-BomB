@@ -62,7 +62,7 @@ function start_wifite() {
 	$(kill_scan) &
 	printf "\e[91m%*s\n" $(((${#US}+$COLUMNS)/2)) "$US"
 	printf "%*s\n\n" $(((${#THEM}+$COLUMNS)/2)) "$THEM"
-	yes all | wifite -quiet -wpa -wpat 120 -i wlan1 #| perl -e '$| = 1; $f = "%-" . `tput cols` . "s\r"; $f =~ s/\n//; while (<>) {s/\n//; printf $f, $_;} print "\n"'
+	yes all | wifite -wpa -wpat 120 # -quiet -i wlan1 #| perl -e '$| = 1; $f = "%-" . `tput cols` . "s\r"; $f =~ s/\n//; while (<>) {s/\n//; printf $f, $_;} print "\n"'
 }
 
 function install_dependencies() {
